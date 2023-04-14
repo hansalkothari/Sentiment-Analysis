@@ -1,0 +1,64 @@
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/styling.css" />
+  </head>
+  <body>
+    <div>
+      <div>
+        <!-----------------Sentiment Analysis Code Start Here-------------------------->
+        <div>
+          <div>
+            <div>
+              <h2>Enter the Text to get the Sentiment</h2>
+            </div>
+          </div>
+
+          <div>
+            <div>
+              <div>
+                <span>Enter Text Here</span>
+                <form
+                  action="/sentiment_prediction"
+                  method="post"
+                  enctype="multipart/form-data"
+                >
+                  <input name="text" class="form-control" placeholder="Text" />
+                  <input type="submit" />
+                </form>
+              </div>
+            </div>
+
+            <div>
+              <h1>Sentiment</h1>
+              <div role="alert">
+                {% if probability %} {{ sentiment }} {% endif %}
+              </div>
+            </div>
+
+            <div>
+              <h1>Probability</h1>
+              <div role="alert">
+                {% if probability %} {{ probability }} {% endif %}
+              </div>
+            </div>
+
+            <!--Image -->
+            <div></div>
+            {% if probability %}
+            <div>
+              <h1>Emotion</h1>
+              <img src="{{ image }}" alt="Image" />
+              {% endif %}
+            </div>
+            <!--Image-->
+          </div>
+        </div>
+        <!-------------Sentiment Analysis Code End------------------------->
+      </div>
+    </div>
+  </body>
+</html>
