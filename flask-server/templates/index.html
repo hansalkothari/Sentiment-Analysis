@@ -4,52 +4,54 @@
 <html lang="en" class="">
   <head>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../static/styling.css" />
+    <link rel="stylesheet" type="text/css" href="../static/styling.css?v=1.66" />
   </head>
-  <body>
-    <div>
+  <body class="body">
+    <div class="page">
       <div>
         <!-----------------Sentiment Analysis Code Start Here-------------------------->
         <div>
           <div>
-            <div>
-              <h2>Enter the Text to get the Sentiment</h2>
+            <div class="head">
+              <h2>Sentiment Analysis Model</h2>
             </div>
           </div>
 
-          <div>
+          <div >
             <div>
-              <div>
+              <div class="data">
                 <span>Enter Text Here</span>
                 <form
                   action="/sentiment_prediction"
                   method="post"
                   enctype="multipart/form-data"
                 >
-                  <input name="text" class="form-control" placeholder="Text" />
-                  <input type="submit" />
+                  <input class="input" name="text" class="form-control" placeholder="Text" />
+                  <input class="button" type="submit" />
                 </form>
               </div>
             </div>
 
-            <div>
-              <h1>Sentiment</h1>
-              <div role="alert">
-                {% if probability %} {{ sentiment }} {% endif %}
+            <div class="output">
+              <div class="output1" >
+                <h1>Sentiment</h1>
+                <div role="alert">
+                  {% if probability %} {{ sentiment }} {% endif %}
+                </div>
               </div>
-            </div>
-
-            <div>
-              <h1>Probability</h1>
-              <div role="alert">
-                {% if probability %} {{ probability }} {% endif %}
+  
+              <div class="output1">
+                <h1>Probability</h1>
+                <div role="alert">
+                  {% if probability %} {{ probability }} {% endif %}
+                </div>
               </div>
             </div>
 
             <!--Image -->
             <div></div>
             {% if probability %}
-            <div>
+            <div class="emotion">
               <h1>Emotion</h1>
               <img src="{{ image }}" alt="Image" />
               {% endif %}

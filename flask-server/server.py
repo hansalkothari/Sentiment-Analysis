@@ -18,6 +18,7 @@ from keras.utils.data_utils import pad_sequences
 IMAGE_FOLDER = os.path.join('static','img_pool')
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = IMAGE_FOLDER
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0  # Disable caching
 
 def init():
     global model, graph
